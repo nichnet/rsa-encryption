@@ -8,8 +8,8 @@ function generateKeys() {
     });
 
     return { 
-        publicKey: publicKey.toString("base64").replace(/\r?\n|\r/g, ''), 
-        privateKey: privateKey.toString("base64").replace(/\r?\n|\r/g, '') 
+        publicKey: publicKey.toString("base64"), 
+        privateKey: privateKey.toString("base64")
     };
 }
 
