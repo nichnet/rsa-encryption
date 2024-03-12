@@ -32,7 +32,7 @@ public class RSA {
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
             PublicKey publicKey = keyFactory.generatePublic(keySpec);
 
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-1AndMGF1Padding");
             cipher.init(Cipher.ENCRYPT_MODE, publicKey);
 
             return Base64.getEncoder().encodeToString(cipher.doFinal(valueBytes));    		
@@ -51,7 +51,7 @@ public class RSA {
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
             PrivateKey privateKey = keyFactory.generatePrivate(keySpec);
 
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-1AndMGF1Padding");
             cipher.init(Cipher.DECRYPT_MODE, privateKey);
 
             return new String(cipher.doFinal(valueBytes), StandardCharsets.UTF_8);    		
