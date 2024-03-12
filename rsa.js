@@ -45,12 +45,13 @@ function decrypt(privateKeyStr, value) {
     return decryptedBuffer.toString('utf8');
 }
 
- 
 function main() {
     const originalMessage = "This `s RSA Encryption Using PUBL1C/PRIVAT3 Key$";
     console.log("Original Message: ", originalMessage);
     
     const keys = generateKeys();
+    console.log("Public Key: ", keys.publicKey);
+    console.log("Private Key: ", keys.privateKey);
     
     const encryptedData = encrypt(keys.publicKey, originalMessage);
     console.log("Encrypted Data: ", encryptedData);
